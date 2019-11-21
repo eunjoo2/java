@@ -128,7 +128,11 @@ public class Exam02 {
 	f. String - ""		참조형은 null이 기본값
 */
 	
+<<<<<<< Updated upstream
 	//집에서 한 작업
+=======
+	
+>>>>>>> Stashed changes
 }/*
 */
 
