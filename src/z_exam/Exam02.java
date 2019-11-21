@@ -127,6 +127,8 @@ public class Exam02 {
 	e. long - 0			L접미사 생략
 	f. String - ""		참조형은 null이 기본값
 */
+	
+	//집에서 한 작업
 }/*
 */
 
