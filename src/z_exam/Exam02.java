@@ -132,7 +132,9 @@ public class Exam02 {
 	//집에서 한 작업
 =======
 	
->>>>>>> Stashed changes
+
+
+
 }/*
 */
 

@@ -45,13 +45,34 @@ public class ComparisonOperator {
 		System.out.println(b); //같은 스트링 리터럴은 같은 주소를 갖는다.
 		b = "abd" == new String("abc"); //new는 새로운 주소를 생성한다.
 		System.out.println(b);
-		// 참조형 타입은 저잔된 메모리 조수를 비교하기 떄문에 String은 등기비교 연산자로 내용을 비교할 수 없다.
+		// 참조형 타입은 저장된 메모리 조수를 비교하기 떄문에 String은 등기비교 연산자로 내용을 비교할 수 없다.
 		
 		b = "abc".equals(new String ("abc"));
 		//equals를 사용하면 String의 내용을 비교할 수 있다.
 		System.out.println(b);
 		b = !"abc".equals("abc");
 		//같지 않다의 결과를 얻기 위해서는 !(NOT)을 앞에 붙여준다.
+		
+		//다음의 문장들을 코드로 작성 후 연산결과를 출력해주세요.
+		//1보다 2가 큰가?
+		
+		b = 1 < 2;
+		System.out.println(b);
+		//0은 100보다 작거나 같은가?
+		b = 0 <= 100;
+		System.out.println(b);
+		
+		//3.14f와 3.14는 다른가?
+		b = 3.14f != 3.14;
+		System.out.println(b);
+		
+		
+		//"남자"와 "여자"는 다른가?
+		b = "남자" != "여자";
+		System.out.println(b);
+		
+		b =! "남자".equals("여자");
+		System.out.println(b);
 		
 		
 		
