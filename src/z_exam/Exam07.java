@@ -28,13 +28,13 @@ public class Exam07 {
 	
 	//	[7-5] 다음의 코드는 컴파일하면 에러가 발생한다. 그 이유를 설명하고 에러를 수정하 위해서는 코드를 어떻게 바꾸어야 하는가?
 		
-	/*	
-
+		
+/*
 			class Product{
 					int price; // 제품의 가격
 					int bonusPoint; // 제품구매 시 제공하는 보너스점수
 					 
-			Product(){}
+					Product(){}
 					
 			Product(int price) {
 					this.price = price;
@@ -42,7 +42,8 @@ public class Exam07 {
 			}
 		}
 			class Tv extends Product {
-				 Tv() {}
+				 Tv() {} // super 를 붙여서 호출하진 않았지만 컴파일러가 자동 생
+				 		//파라미터가 없는 생성자가 필요해서
 				public String toString() {
 					return "Tv";
 				}
@@ -53,7 +54,7 @@ public class Exam07 {
 					}
 			}
 			
-		*/	
+	*/		
 			
 			
 //			Product클래스에는 이미 Product(int price)라는 
@@ -67,6 +68,8 @@ public class Exam07 {
 			 * 
 			 * 코드의 재사용성을 높이고 중복을 제거하여 프로그램의 생산성과 유지보수가 용이하다.
 			 * 
+			 * 
+			 * 조상에 정의된 인스턴스 변수들이 초기화되도록 하기 위해서
 			 */
 		
 		
@@ -125,41 +128,41 @@ public class Exam07 {
 			d. 멤버변수 - 값을 변경할 수 없다.
  
 */
-//		[7-10] MyTv2클래스의 멤버변수 isPowerOn, channel, volume을 클래스 외부에서 접근할
-//		수 없도록 제어자를 붙이고 대신 이 멤버변수들의 값을 어디서나 읽고 변경할 수 있도록
-//		getter와 setter메서드를 추가하라.
-//		
-/*		
+/*		[7-10] MyTv2클래스의 멤버변수 isPowerOn, channel, volume을 클래스 외부에서 접근할
+		수 없도록 제어자를 붙이고 대신 이 멤버변수들의 값을 어디서나 읽고 변경할 수 있도록
+		getter와 setter메서드를 추가하라.
+		
+		
 		class MyTv2 {
-		boolean isPowerOn;
-		int channel;
-		int volume;
+			
+		private boolean isPowerOn;
+		private int channel;
+		private int volume;
+		
+		
+		public int getChannel() {
+			return channel;
+		}
+		public void setChannel(int channel) {
+			this.channel = channel;
+		}
+		public int getVolume() {
+			return volume;
+		}
+		public void setVolume(int volume) {
+			this.volume = volume;
+		}
 		final int MAX_VOLUME = 100;
 		final int MIN_VOLUME = 0;
 		final int MAX_CHANNEL = 100;
 		final int MIN_CHANNEL = 1;
 		
-		//
-		public void setChannel(int channl){
-			if(channl >MAX_CHANNEL || channl < MIN_CHANNEL)
-				return;
-			this.channel = channel;
-		}
-		public int getChannel(){
-			return channel;
-			}
+	}
+	
+	*/	
 		
-		public void setVolume(int volume){
-			if(volume > MAX_VOLUME || volume < MIN_VOLUME)
-				return;
-			this.volume = volume;
-		}
-		public int getVolume(){
-			return volume;
-		}
 		
-		//
-		}
+		
 //		class Exercise7_10 {
 //		public static void main(String args[]) {
 //		MyTv2 t = new MyTv2();
@@ -169,7 +172,7 @@ public class Exam07 {
 //		System.out.println("VOL:"+t.getVolume());
 //			}
 //		}
-*/
+
 	
 /*		[7-11] 문제7-10에서 작성한 MyTv2클래스에 이전 채널(previous channel)로 이동하는
 		기능의 메서드를 추가해서 실행결과와 같은 결과를 얻도록 하시오.
@@ -180,12 +183,12 @@ public class Exam07 {
 		반환타입 : 없음
 		매개변수 : 없음
 */		
-		
+/*		
 		class MyTv2 {
 			
-				boolean isPowerOn;
-				int channel;
-				int volume;
+				private boolean isPowerOn;
+				private int channel;
+				private int volume;
 				int prevChannel;
 				
 				final int MAX_VOLUME = 100;
@@ -194,13 +197,14 @@ public class Exam07 {
 				final int MIN_CHANNEL = 1;
 				
 				
-				//
+				
 				public void setChannel(int channl){
 					if(channl >MAX_CHANNEL || channl < MIN_CHANNEL)
 						return;
 					prevChannel = this.channel;
 					this.channel = channel;
 				}
+				
 				public int getChannel(){
 					return channel;
 					}
@@ -217,6 +221,7 @@ public class Exam07 {
 						return;
 					this.volume = volume;
 				}
+				
 				public int getVolume(){
 					return volume;
 				}
@@ -236,7 +241,7 @@ public class Exam07 {
 		System.out.println("CH:"+t.getChannel());
 			}
 			}
-		
+	*/	
 		
 /*		[7-12] 다음 중 접근 제어자에 대한 설명으로 옳지 않은 것은? (모두 고르시오)
 			o	a. public은 접근제한이 전혀 없는 접근 제어자이다.
@@ -250,7 +255,7 @@ public class Exam07 {
 		
 /*		[7-13] Math클래스의 생성자는 접근 제어자가 private이다. 그 이유는 무엇인가?
 			클래스내에서만 접근을 제어하기 떄문에
-			
+			인스턴스를 생성하지 않으려고
 			
 			Math클래스의 모든 메서드가 static메서드이고 인스턴스변수가 존재하지 않기 때
 			문에 객체를 생성할 필요가 없기 때문
@@ -314,38 +319,44 @@ public class Exam07 {
 				
 				
 */
-		
+/*		
 //		[7-17] 아래 세 개의 클래스로부터 공통부분을 뽑아서 Unit이라는 클래스를 만들고, 이
 //		클래스를 상속받도록 코드를 변경하시오.
-		class Marine { // 보병
-		int x, y; // 현재 위치
-		void move(int x, int y) { /* 지정된 위치로 이동 */ }
-		void stop() { /* 현재 위치에 정지 */ }
-		void stimPack() { /* 스팀팩을 사용한다.*/}
-		}
-		class Tank { // 탱크
-		int x, y; // 현재 위치
-		void move(int x, int y) { /* 지정된 위치로 이동 */ }
-		void stop() { /* 현재 위치에 정지 */ }
-		void changeMode() { /* 공격모드를 변환한다. */}
-		}
-		class Dropship { // 수송선
-		int x, y; // 현재 위치
-		void move(int x, int y) { /* 지정된 위치로 이동 */ }
-		void stop() { /* 현재 위치에 정지 */ }
-		void load() { /* 선택된 대상을 태운다.*/ }
-		void unload() { /* 선택된 대상을 내린다.*/ }
-		}
-		
-	
-		
+//		
+//		
+//		
+//		abstract class Unit {//
+//		
+//			int x, y;
+//			abstract void move(int x, int y); // 추상클래스
+//			void stop() { /* 현재 위치에 정지 */ }
+//			}
+//			class Marine extends Unit { // 보병
+//			void move(int x, int y) { /* 지정된 위치로 이동 */ }
+//			void stimPack() { /* 스팀팩을 사용한다.*/}
+//			}
+//			class Tank extends Unit { // 탱크
+//			void move(int x, int y) { /* 지정된 위치로 이동 */ }
+//			void changeMode() { /* 공격모드를 변환한다. */}
+//			}
+//			class Dropship extends Unit { // 수송선
+//			void move(int x, int y) { /* 지정된 위치로 이동 */ }
+//			void load() { /* 선택된 대상을 태운다.*/ }
+//			void unload() { /* 선택된 대상을 내린다.*/ }
+//			}
+//	
+//		
 /*		[7-20] 다음의 코드를 실행한 결과를 적으시오.
 		[연습문제]/ch7/Exercise7_20.java
-	*/
-		class Exercise7_20 {
+	
+		class Exercise7 {
 		public static void main(String[] args) {
-		Parent p = new Child();
-		Child c = new Child();
+			
+		
+		Parent p = new Child();//
+		Child c = new Child();//
+		
+		
 		System.out.println("p.x = " + p.x);
 		p.method();
 		System.out.println("c.x = " + c.x);
@@ -353,21 +364,47 @@ public class Exam07 {
 		}
 		}
 		class Parent {
-		int x = 100;
+			
+		int x = 100;//
+		
+		
 		void method() {
 		System.out.println("Parent Method");
 		}
 		}
 		class Child extends Parent {
-		int x = 200;
+			
+		
+		int x = 200;//
+		
+		
 		void method() {
 		System.out.println("Child Method");
 		}
 		}
+*/		
+		//오버라이딩을 해서 
 		
+/*
+		[7-24] 다음 중 인터페이스의 장점이 아닌 것은?
+				a. 표준화를 가능하게 해준다.
+				b. 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
+				c. 독립적인 프로그래밍이 가능하다.
+				d. 다중상속을 가능하게 해준다.
+				e. 패키지간의 연결을 도와준다.
+				[정답] e
+				[해설] 인터페이스를 사용하는 이유와 그 장점을 정리해 보면 다음과 같다.
+				1. 개발시간을 단축시킬 수 있다.
+				2. 표준화가 가능하다
+				3. 서로 관계없는 클래스들에게 관계를 맺어 줄 수 있다.
+				4. 독립적인 프로그래밍이 가능하다
+			
+				
+			}	
+				
+			*/
 		
-		
-}
+
 
 
 
