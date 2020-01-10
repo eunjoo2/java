@@ -31,7 +31,7 @@ public class MathClass {
 		}
 	}
 	
-	static int getRandom(int from, int to){
+	public static int getRandom(int from, int to){
 		return (int)(Math.random()*(Math.abs(to - from)+1))
 				+ Math.min(from, to);
 		}

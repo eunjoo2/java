@@ -1,5 +1,6 @@
 package d_array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Score {
@@ -56,9 +57,9 @@ public class Score {
 		//
 		// }
 
-		// System.out.println("석차 \t" + "이름\t" +
-		// "Java \t"+"Oracle\t"+"HTML\t"+"CSS\t"+"JQuery\t"+"JSP\t"+ "총점\t" +
-		// "평균\t");
+//		 System.out.println("석차 \t" + "이름\t" +
+//		 "Java \t"+"Oracle\t"+"HTML\t"+"CSS\t"+"JQuery\t"+"JSP\t"+ "총점\t" +
+//		 "평균\t");
 		//
 		//
 		// int rank[] = new int [21];
@@ -121,7 +122,8 @@ public class Score {
 				}
 			}
 		}
-
+		
+				
 		// 출력한다
 		System.out.print("석차\t이름");
 		for (int i = 0; i < subjects.length; i++) {
